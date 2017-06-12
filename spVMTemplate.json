@@ -1,109 +1,117 @@
 ﻿{
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "windowsImagePublisher": {
-            "type": "string",
-            "metadata": {
-                "description": "The Publisher of Windows Image"
-            },
-            "defaultValue": "MicrosoftWindowsServer"
-        },
-        "windowsImageOffer": {
-            "type": "string",
-            "metadata": {
-                "description": "The offer of Windows Image"
-            },
-            "defaultValue": "WindowsServer"
-        },
-        "windowsImageSKU": {
-            "type": "string",
-            "metadata": {
-                "description": "The SKU Name of Windows Image"
-            },
-            "defaultValue": "2012-R2-Datacenter"
-        },
-        "windowsImageVersion": {
-            "type": "string",
-            "metadata": {
-                "description": "The Version of Windows Image"
-            },
-            "defaultValue": "latest"
-        },
-        "dataDiskSize": {
-            "type": "int",
-            "metadata": {
-                "description": "The Size of SharePoint VM data disk. Default 10 GB"
-            },
-            "defaultValue": 10
-        },
-        "vmName": {
-            "type": "string",
-            "metadata": {
-                "description": "The Prefix of the VM Name"
-            }
-        },
-        "storageAccount": {
-            "type": "string",
-            "metadata": {
-                "description": "The Storage Account Name"
-            }
-        },
-        "storageAccountType": {
-            "type": "string",
-            "metadata": {
-                "description": "The type of the Storage Account created"
-            },
-            "defaultValue": "Standard_LRS"
-        },
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Administrator of the new VMs and Domain"
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "The password for the Administrator account of the new VMs and Domain"
-            }
-        },
-        "vmSize": {
-            "type": "string",
-            "metadata": {
-                "description": "The size of the AD VMs Created"
-            },
-            "defaultValue": "Standard_A2"
-        },
-        "subnetResourceId": {
-            "type": "string",
-            "metadata": {
-                "description": "the resource id to the subnet"
-            }
-        },
-
-
-        "rdpNATRuleID": {
-            "type": "string",
-            "metadata": {
-                "description": "The resource id for the RDP NAT rule"
-            }
-        },
-
-        "lbBEPool": {
-            "type": "string",
-            "metadata": {
-                "description": "The resource id for the SharePoint load balancer back end pool"
-            }
-        }
-
+  "parameters": {
+    "windowsImagePublisher": {
+      "type": "string",
+      "metadata": {
+        "description": "The Publisher of Windows Image"
+      },
+      "defaultValue": "MicrosoftWindowsServer"
     },
-    "variables": {
-
-        "spNicName": "[concat('SPNic',resourceGroup().name)]",
-        "vmContainerName": "vhds"
-
+    "windowsImageOffer": {
+      "type": "string",
+      "metadata": {
+        "description": "The offer of Windows Image"
+      },
+      "defaultValue": "WindowsServer"
     },
+    "windowsImageSKU": {
+      "type": "string",
+      "metadata": {
+        "description": "The SKU Name of Windows Image"
+      },
+      "defaultValue": "2012-R2-Datacenter"
+    },
+    "windowsImageVersion": {
+      "type": "string",
+      "metadata": {
+        "description": "The Version of Windows Image"
+      },
+      "defaultValue": "latest"
+    },
+    "dataDiskSize": {
+      "type": "int",
+      "metadata": {
+        "description": "The Size of SharePoint VM data disk. Default 10 GB"
+      },
+      "defaultValue": 10
+    },
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The Prefix of the VM Name"
+      }
+    },
+    "storageAccount": {
+      "type": "string",
+      "metadata": {
+        "description": "The Storage Account Name"
+      }
+    },
+    "storageAccountType": {
+      "type": "string",
+      "metadata": {
+        "description": "The type of the Storage Account created"
+      },
+      "defaultValue": "Standard_LRS"
+    },
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the Administrator of the new VMs and Domain"
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "The password for the Administrator account of the new VMs and Domain"
+      }
+    },
+    "vmSize": {
+      "type": "string",
+      "metadata": {
+        "description": "The size of the AD VMs Created"
+      },
+      "defaultValue": "Standard_A2"
+    },
+    "subnetResourceId": {
+      "type": "string",
+      "metadata": {
+        "description": "the resource id to the subnet"
+      }
+    },
+
+
+    "rdpNATRuleID": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource id for the RDP NAT rule"
+      }
+    },
+
+    "lbBEPool": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource id for the SharePoint load balancer back end pool"
+      }
+    },
+
+    "spNicName": {
+      "type": "string",
+      "metadata": {
+        "description": "The network NIC Name"
+      },
+      "defaultValue": "[concat('SPNic',resourceGroup().name)]"
+    }
+
+  },
+  "variables": {
+
+    "spNicName": "[parameters('spNicName')]",
+    "vmContainerName": "vhds"
+
+  },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",

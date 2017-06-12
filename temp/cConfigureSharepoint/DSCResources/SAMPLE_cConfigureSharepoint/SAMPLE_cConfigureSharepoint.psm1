@@ -230,8 +230,7 @@ function Configure-Sharepoint
                                 -DatabaseServer $DatabaseServer `
                                 -AdministrationContentDatabaseName $AdministrationContentDatabaseName `
                                 -FarmCredentials $FarmAccountCredential `
-                                -Passphrase $FarmPassphrase `
-				-LocalServerRole "Custom"
+                                -Passphrase $FarmPassphrase 
 
     ScanFarmServers -DatabaseName $DatabaseName `
                     -DatabaseServer $DatabaseServer
