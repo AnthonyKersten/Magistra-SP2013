@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "domainName": {
-      "value": "ake.local"
+      "value": "ark.local"
     },
     "adminUsername": {
       "value": "tenantadmin"
     },
     "CustomerSuffix": {
-      "value": "ake"
+      "value": "ark"
     },
     "RDSImageSKU": {
       "value": "2016-Datacenter"
