@@ -90,16 +90,17 @@
       "metadata": {
         "description": "Virtual Machine Size for the RDS Deployment"
       },
-      "DefaultValue": "Standard_A2"
+      "DefaultValue": "Standard_D5_v2"
     }
   },
   "variables": {
     "storageAccountType": "Standard_LRS",
-    "adVMSize": "Standard_A1",
-    "sqlVMSize": "Standard_A2",
-    "spVMSize": "Standard_A3",
-    "spassetLocation": "https://raw.githubusercontent.com/AnthonyKersten/Magistra-SP2013/master",
-    "adAssetLocation": "https://raw.githubusercontent.com/AnthonyKersten/ad-nonha/master",
+    "adVMSize": "Standard_D5_v2",
+    "sqlVMSize": "Standard_D5_v2",
+    "spVMSize": "Standard_D5_v2",
+
+    "spassetLocation": "https://raw.github.com/AnthonyKersten/Magistra-SP2016-new/master",
+    "adAssetLocation": "https://raw.github.com/AnthonyKersten/ad-nonha/master", 
     "sqlAssetLocation": "https://raw.githubusercontent.com/DennisSchouwenaars/NON-HA-SQL/master",
     "rdsAssetLocation": "https://raw.githubusercontent.com/DennisSchouwenaars/NON-HA-RDS/master",
     "location": "[resourceGroup().location]",
